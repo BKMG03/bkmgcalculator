@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BKMG Calculator</title>
-
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,43 +11,56 @@
 
 <header>
     <h1>BKMG Calculator</h1>
-    <p>Smart Financial Planning Platform</p>
+    <p>Universal ULIP Calculator</p>
 </header>
 
-<section class="hero">
+<div class="container">
 
-<h2>Universal ULIP Calculator</h2>
+    <div class="card">
 
-<p>Calculate Future Value, Wealth Creation & Investment Growth instantly.</p>
+        <h2>Universal ULIP Calculator</h2>
 
-<button>Start Calculator</button>
+        <label>Customer Name</label>
+        <input type="text" id="name" placeholder="Enter Name">
 
-</section>
+        <label>Annual Premium (₹)</label>
+        <input type="number" id="premium" placeholder="50000">
 
-<section class="cards">
+        <label>Premium Paying Term (Years)</label>
+        <input type="number" id="ppt" placeholder="10">
 
-<div class="card">
-<h3>ULIP Calculator</h3>
-<p>Future Value Calculator</p>
+        <label>Policy Term (Years)</label>
+        <input type="number" id="term" placeholder="20">
+
+        <label>Expected Return (%)</label>
+
+        <select id="rate">
+            <option>4</option>
+            <option selected>8</option>
+            <option>10</option>
+            <option>12</option>
+        </select>
+
+        <button onclick="calculateULIP()">Calculate</button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Results</h2>
+
+        <h3>Total Premium</h3>
+        <p id="premiumResult">₹0</p>
+
+        <h3>Estimated Fund Value</h3>
+        <p id="fundResult">₹0</p>
+
+        <h3>Wealth Gain</h3>
+        <p id="gainResult">₹0</p>
+
+    </div>
+
 </div>
-
-<div class="card">
-<h3>SIP Calculator</h3>
-<p>Monthly Investment Planner</p>
-</div>
-
-<div class="card">
-<h3>EMI Calculator</h3>
-<p>Loan EMI Calculation</p>
-</div>
-
-</section>
-
-<footer>
-
-© 2026 BKMG Calculator
-
-</footer>
 
 <script src="script.js"></script>
 
