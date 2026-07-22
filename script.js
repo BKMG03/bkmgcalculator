@@ -1,1 +1,1 @@
-console.log("BKMG Calculator Started");
+alert("Welcome to BKMG Calculator!");
