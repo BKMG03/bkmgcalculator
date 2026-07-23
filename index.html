@@ -4,65 +4,131 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BKMG Calculator</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f4f4f4;
+margin:0;
+padding:20px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+h1{
+text-align:center;
+color:#004b8d;
+}
+
+input,select,button{
+width:100%;
+padding:12px;
+margin-top:10px;
+font-size:16px;
+}
+
+button{
+background:#004b8d;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+button:hover{
+background:#003366;
+}
+
+.result{
+margin-top:20px;
+padding:15px;
+background:#eef8ff;
+border-radius:8px;
+font-size:18px;
+}
+</style>
+
 </head>
-
 <body>
-
-<header>
-    <h1>BKMG Calculator</h1>
-    <p>Universal ULIP Calculator</p>
-</header>
 
 <div class="container">
 
-    <div class="card">
+<h1>BKMG Universal ULIP Calculator</h1>
 
-        <h2>Universal ULIP Calculator</h2>
+<label>Customer Name</label>
+<input type="text" id="name">
 
-        <label>Customer Name</label>
-        <input type="text" id="name" placeholder="Enter Name">
+<label>Annual Premium (₹)</label>
+<input type="number" id="premium">
 
-        <label>Annual Premium (₹)</label>
-        <input type="number" id="premium" placeholder="50000">
+<label>Premium Paying Term (Years)</label>
+<input type="number" id="ppt">
 
-        <label>Premium Paying Term (Years)</label>
-        <input type="number" id="ppt" placeholder="10">
+<label>Policy Term (Years)</label>
+<input type="number" id="term">
 
-        <label>Policy Term (Years)</label>
-        <input type="number" id="term" placeholder="20">
+<label>Expected Return</label>
 
-        <label>Expected Return (%)</label>
+<select id="rate">
+<option value="4">4%</option>
+<option value="8" selected>8%</option>
+<option value="10">10%</option>
+<option value="12">12%</option>
+</select>
 
-        <select id="rate">
-            <option>4</option>
-            <option selected>8</option>
-            <option>10</option>
-            <option>12</option>
-        </select>
+<button onclick="calculate()">Calculate</button>
 
-        <button onclick="calculateULIP()">Calculate</button>
+<div class="result">
 
-    </div>
+<h3 id="customer"></h3>
 
-    <div class="card">
+<p>Total Premium : <b id="tp"></b></p>
 
-        <h2>Results</h2>
+<p>Estimated Fund Value : <b id="fv"></b></p>
 
-        <h3>Total Premium</h3>
-        <p id="premiumResult">₹0</p>
-
-        <h3>Estimated Fund Value</h3>
-        <p id="fundResult">₹0</p>
-
-        <h3>Wealth Gain</h3>
-        <p id="gainResult">₹0</p>
-
-    </div>
+<p>Estimated Wealth Gain : <b id="gain"></b></p>
 
 </div>
 
-<script src="script.js"></script>
+</div>
+
+<script>
+
+function calculate(){
+
+let name=document.getElementById("name").value;
+
+let premium=parseFloat(document.getElementById("premium").value);
+
+let ppt=parseFloat(document.getElementById("ppt").value);
+
+let term=parseFloat(document.getElementById("term").value);
+
+let rate=parseFloat(document.getElementById("rate").value)/100;
+
+let totalPremium=premium*ppt;
+
+let fundValue=premium*((Math.pow(1+rate,term)-1)/rate);
+
+let gain=fundValue-totalPremium;
+
+document.getElementById("customer").innerHTML="Customer : "+name;
+
+document.getElementById("tp").innerHTML="₹"+totalPremium.toLocaleString();
+
+document.getElementById("fv").innerHTML="₹"+Math.round(fundValue).toLocaleString();
+
+document.getElementById("gain").innerHTML="₹"+Math.round(gain).toLocaleString();
+
+}
+
+</script>
 
 </body>
 </html>
