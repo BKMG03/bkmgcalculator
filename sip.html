@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIP Calculator</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+<h1>SIP Calculator</h1>
+<p>Monthly Investment Planner</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>SIP Calculator</h2>
+
+<label>Monthly SIP (₹)</label>
+<input type="number" id="sip">
+
+<label>Investment Years</label>
+<input type="number" id="years">
+
+<label>Expected Return (%)</label>
+
+<select id="rate">
+<option value="8">8%</option>
+<option value="10">10%</option>
+<option value="12" selected>12%</option>
+<option value="15">15%</option>
+</select>
+
+<br><br>
+
+<button class="btn" onclick="calculateSIP()">Calculate</button>
+
+</div>
+
+<div class="card">
+
+<h2>Results</h2>
+
+<p><b>Total Investment</b></p>
+<h3 id="investment">₹0</h3>
+
+<p><b>Estimated Wealth</b></p>
+<h3 id="wealth">₹0</h3>
+
+<p><b>Profit</b></p>
+<h3 id="profit">₹0</h3>
+
+</div>
+
+</div>
+
+<script src="sip.js"></script>
+
+</body>
+</html>
