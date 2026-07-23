@@ -1,127 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BKMG Calculator</title>
-
-<style>
-body{
-font-family:Arial,sans-serif;
-background:#f4f4f4;
-margin:0;
-padding:20px;
-}
-
-.container{
-max-width:700px;
-margin:auto;
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,.2);
-}
-
-h1{
-text-align:center;
-color:#004b8d;
-}
-
-input,select,button{
-width:100%;
-padding:12px;
-margin-top:10px;
-font-size:16px;
-}
-
-button{
-background:#004b8d;
-color:white;
-border:none;
-cursor:pointer;
-}
-
-button:hover{
-background:#003366;
-}
-
-.result{
-margin-top:20px;
-padding:15px;
-background:#eef8ff;
-border-radius:8px;
-font-size:18px;
-}
-</style>
-
-</head>
-<body>
+<header>
+    <h1>BKMG Financial Planner</h1>
+    <p>One Platform • All Financial Calculators</p>
+</header>
 
 <div class="container">
 
-<h1>BKMG Universal ULIP Calculator</h1>
+<div class="card">
+<h2>📈 ULIP Calculator</h2>
+<p>Future Value & Wealth Creation</p>
+<button>Open</button>
+</div>
 
-<label>Customer Name</label>
-<input type="text" id="name">
+<div class="card">
+<h2>💰 SIP Calculator</h2>
+<p>Monthly Investment Planner</p>
+<button>Coming Soon</button>
+</div>
 
-<label>Annual Premium (₹)</label>
-<input type="number" id="premium">
+<div class="card">
+<h2>🏦 EMI Calculator</h2>
+<p>Loan EMI Calculator</p>
+<button>Coming Soon</button>
+</div>
 
-<label>Premium Paying Term (Years)</label>
-<input type="number" id="ppt">
+<div class="card">
+<h2>👴 Retirement Planner</h2>
+<p>Retirement Corpus Planning</p>
+<button>Coming Soon</button>
+</div>
 
-<label>Policy Term (Years)</label>
-<input type="number" id="term">
+<div class="card">
+<h2>👶 Child Education Planner</h2>
+<p>Education Goal Calculator</p>
+<button>Coming Soon</button>
+</div>
 
-<label>Expected Return</label>
-
-<select id="rate">
-<option value="4">4%</option>
-<option value="8" selected>8%</option>
-<option value="10">10%</option>
-<option value="12">12%</option>
-</select>
-
-<button onclick="calculate()">Calculate</button>
-
-<div class="result">
-
-<h3 id="customer"></h3>
-
-<p>Total Premium : <b id="tp"></b></p>
-
-<p>Estimated Fund Value : <b id="fv"></b></p>
-
-<p>Estimated Wealth Gain : <b id="gain"></b></p>
-
+<div class="card">
+<h2>❤️ Insurance Need Calculator</h2>
+<p>Human Life Value Planning</p>
+<button>Coming Soon</button>
 </div>
 
 </div>
-
-<script>
-
-function calculate(){
-
-let name=document.getElementById("name").value;
-
-let premium=parseFloat(document.getElementById("premium").value);
-
-let ppt=parseFloat(document.getElementById("ppt").value);
-
-let term=parseFloat(document.getElementById("term").value);
-
-let rate=parseFloat(document.getElementById("rate").value)/100;
-
-let totalPremium=premium*ppt;
-
-let fundValue=premium*((Math.pow(1+rate,term)-1)/rate);
-
-let gain=fundValue-totalPremium;
-
-document.getElementById("customer").innerHTML="Customer : "+name;
-
-document.getElementById("tp").innerHTML="₹"+totalPremium.toLocaleString();
-
 document.getElementById("fv").innerHTML="₹"+Math.round(fundValue).toLocaleString();
 
 document.getElementById("gain").innerHTML="₹"+Math.round(gain).toLocaleString();
