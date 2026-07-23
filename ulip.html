@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BKMG ULIP Calculator</title>
 
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <h1>BKMG ULIP Calculator</h1>
+    <p>Universal ULIP Planner</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>ULIP Calculator</h2>
+
+<label>Customer Name</label>
+<input type="text" id="name">
+
+<label>Annual Premium (₹)</label>
+<input type="number" id="premium">
+
+<label>Premium Paying Term (Years)</label>
+<input type="number" id="ppt">
+
+<label>Policy Term (Years)</label>
+<input type="number" id="term">
+
+<label>Expected Return (%)</label>
+<select id="rate">
+<option value="4">4%</option>
+<option value="8" selected>8%</option>
+<option value="10">10%</option>
+<option value="12">12%</option>
+</select>
+
+<br><br>
+
+<button class="btn" onclick="calculateULIP()">Calculate</button>
+
+</div>
+
+<div class="card">
+
+<h2>Results</h2>
+
+<p><b>Total Premium</b></p>
+<h3 id="premiumResult">₹0</h3>
+
+<p><b>Estimated Fund Value</b></p>
+<h3 id="fundResult">₹0</h3>
+
+<p><b>Wealth Gain</b></p>
+<h3 id="gainResult">₹0</h3>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
